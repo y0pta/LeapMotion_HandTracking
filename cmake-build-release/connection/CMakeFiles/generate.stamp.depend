@@ -1,0 +1,6 @@
+# CMake generation dependency list for this directory.
+D:/PROGRAMMING/CLion/leapMotion/LeapSDK/lib/cmake/LeapSDK/leapsdk-config.cmake
+D:/PROGRAMMING/CLion/leapMotion/LeapSDK/lib/cmake/LeapSDK/leapsdk-configVersion.cmake
+D:/PROGRAMMING/CLion/leapMotion/LeapSDK/lib/x64/cmake/LeapCTargets-relwithdebinfo.cmake
+D:/PROGRAMMING/CLion/leapMotion/LeapSDK/lib/x64/cmake/LeapCTargets.cmake
+D:/PROGRAMMING/CLion/leapMotion/connection/CMakeLists.txt

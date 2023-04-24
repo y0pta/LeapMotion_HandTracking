@@ -1,0 +1,1 @@
+D:\PROGRAMMING\CLion\leapMotion\cmake-build-release\libExampleConnection.dir\Release\libExampleConnection.lib

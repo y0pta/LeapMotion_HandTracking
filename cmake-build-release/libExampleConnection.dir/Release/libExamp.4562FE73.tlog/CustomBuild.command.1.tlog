@@ -1,0 +1,10 @@
+^D:\PROGRAMMING\CLION\LEAPMOTION\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\JetBrains\CLion 2022.2\bin\cmake\win\bin\cmake.exe" -SD:/PROGRAMMING/CLion/leapMotion -BD:/PROGRAMMING/CLion/leapMotion/cmake-build-release --check-stamp-file D:/PROGRAMMING/CLion/leapMotion/cmake-build-release/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

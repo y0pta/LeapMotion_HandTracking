@@ -1,0 +1,6 @@
+"C:\Program Files\JetBrains\CLion 2022.2\bin\cmake\win\bin\cmake.exe" -G "Visual Studio 17 2022" -S D:\PROGRAMMING\CLion\leapMotion -B D:\PROGRAMMING\CLion\leapMotion\cmake-build-release
+-- Selecting Windows SDK version 10.0.19041.0 to target Windows 10.0.18363.
+-- D:/PROGRAMMING/CLion/leapMotion/LeapSDK/lib/cmake/LeapSDK
+-- Configuring done
+-- Generating done
+-- Build files have been written to: D:/PROGRAMMING/CLion/leapMotion/cmake-build-release
