@@ -4,11 +4,34 @@
     <ClCompile Include="D:\PROGRAMMING\CLion\leapMotion\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\PROGRAMMING\CLion\leapMotion\LeapConnection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROGRAMMING\CLion\leapMotion\LeapConnectionSerializer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PROGRAMMING\CLion\leapMotion\Utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\PROGRAMMING\CLion\leapMotion\LeapConnection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\PROGRAMMING\CLion\leapMotion\LeapConnectionSerializer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\PROGRAMMING\CLion\leapMotion\Utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\PROGRAMMING\CLion\leapMotion\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{58ACBC11-B521-3773-A18E-0D7FFFA448DF}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{9E05673E-B704-380F-8FB5-86EEC056CF66}</UniqueIdentifier>
     </Filter>

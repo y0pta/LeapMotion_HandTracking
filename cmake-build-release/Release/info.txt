@@ -1,0 +1,1496 @@
+Total frames:168
+Total images:165
+-------------------
+Found device: LE31000400000063A2-3610-8940827BF6
+HFOV:0
+VFOV:0
+Max range(micrometers):0
+-------------------
+
+-------------------
+Frame 20598:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20599:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20600:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20601:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20602:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20603:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20604:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20605:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20606:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20607:1hands. 
+Hand id: 843133750 right
+Center position from center ultraleap(cm):6.83064e+21 4.30596e+20 7.00785e+21
+
+-------------------
+-------------------
+Frame 20608:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20609:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20610:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20611:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20612:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20613:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20614:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20615:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20616:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20617:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20618:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20619:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20620:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20621:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20622:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20623:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20624:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20625:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20626:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20627:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20628:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20629:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20630:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20631:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20632:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20633:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20634:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20635:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20636:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20637:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20638:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20639:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20640:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20641:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20642:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20643:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20644:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20645:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20646:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20647:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20648:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20649:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20650:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20651:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20652:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20653:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20654:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20655:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20656:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20657:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20658:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20659:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20660:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20661:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20662:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20663:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20664:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20665:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20666:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20667:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20668:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20669:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20670:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20671:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20672:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20673:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20674:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20675:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20676:2hands. 
+Hand id: 169881203 right
+Center position from center ultraleap(cm):2.95936e+20 7.21434e+21 1.18536e+26
+
+Hand id: 775240233 right
+Center position from center ultraleap(cm):9.84394e-13 7.85442e-13 9.84394e-13
+
+-------------------
+-------------------
+Frame 20677:2hands. 
+Hand id: 544108393 right
+Center position from center ultraleap(cm):1.70887e-05 4.14106e-12 1.7247e-08
+
+Hand id: 757935405 right
+Center position from center ultraleap(cm):1.71863e-05 2.67699e+19 5.5341e-12
+
+-------------------
+-------------------
+Frame 20678:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20679:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20680:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20681:2hands. 
+Hand id: 1851877425 right
+Center position from center ultraleap(cm):1.89404e+22 2.01116e-20 7.55507e+30
+
+Hand id: 1663594593 right
+Center position from center ultraleap(cm):9.84394e-13 9.84394e-13 8.33814e-34
+
+-------------------
+-------------------
+Frame 20682:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20683:2hands. 
+Hand id: 170732845 right
+Center position from center ultraleap(cm):13.8455 7.21434e+21 7.43156e+27
+
+Hand id: 1700995181 right
+Center position from center ultraleap(cm):1.68056e-05 6.65503e-34 9.84394e-13
+
+-------------------
+-------------------
+Frame 20684:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20685:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20686:2hands. 
+Hand id: 1634218298 right
+Center position from center ultraleap(cm):2.01962e-20 4.63158e+26 1.7748e+27
+
+Hand id: 678453605 right
+Center position from center ultraleap(cm):9.84394e-13 9.84394e-13 9.84394e-13
+
+-------------------
+-------------------
+Frame 20687:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20688:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20689:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20690:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20691:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20692:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20693:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20694:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20695:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20696:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20697:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20698:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20699:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20700:2hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+Hand id: 12 right
+Center position from center ultraleap(cm):4.74648 31.0025 6.0558
+
+-------------------
+-------------------
+Frame 20701:1hands. 
+Hand id: 842080314 right
+Center position from center ultraleap(cm):2.79531e+19 2.79027e+28 5.27106e-15
+
+-------------------
+-------------------
+Frame 20702:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20703:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20704:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20705:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20706:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20707:1hands. 
+Hand id: 843133750 right
+Center position from center ultraleap(cm):6.83064e+21 4.30596e+20 7.00785e+21
+
+-------------------
+-------------------
+Frame 20708:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20709:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20710:1hands. 
+Hand id: 1769087026 right
+Center position from center ultraleap(cm):2.64507e+19 4.39387e+26 4.12063e-12
+
+-------------------
+-------------------
+Frame 20711:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20712:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20713:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20714:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20715:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20716:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20717:0hands. 
+-------------------
+-------------------
+Frame 20718:0hands. 
+-------------------
+-------------------
+Frame 20719:0hands. 
+-------------------
+-------------------
+Frame 20720:0hands. 
+-------------------
+-------------------
+Frame 20721:0hands. 
+-------------------
+-------------------
+Frame 20723:0hands. 
+-------------------
+-------------------
+Frame 20724:0hands. 
+-------------------
+-------------------
+Frame 20725:0hands. 
+-------------------
+-------------------
+Frame 20726:0hands. 
+-------------------
+-------------------
+Frame 20727:0hands. 
+-------------------
+-------------------
+Frame 20728:0hands. 
+-------------------
+-------------------
+Frame 20729:0hands. 
+-------------------
+-------------------
+Frame 20730:0hands. 
+-------------------
+-------------------
+Frame 20731:0hands. 
+-------------------
+-------------------
+Frame 20732:0hands. 
+-------------------
+-------------------
+Frame 20733:0hands. 
+-------------------
+-------------------
+Frame 20734:0hands. 
+-------------------
+-------------------
+Frame 20735:0hands. 
+-------------------
+-------------------
+Frame 20736:0hands. 
+-------------------
+-------------------
+Frame 20737:0hands. 
+-------------------
+-------------------
+Frame 20738:0hands. 
+-------------------
+-------------------
+Frame 20739:0hands. 
+-------------------
+-------------------
+Frame 20740:0hands. 
+-------------------
+-------------------
+Frame 20741:0hands. 
+-------------------
+-------------------
+Frame 20742:1hands. 
+Hand id: 1663069551 right
+Center position from center ultraleap(cm):6.70045e-11 8.8691e-34 9.84391e-13
+
+-------------------
+-------------------
+Frame 20743:1hands. 
+Hand id: 926495539 right
+Center position from center ultraleap(cm):7.85442e-13 9.84394e-13 9.84394e-13
+
+-------------------
+-------------------
+Frame 20744:1hands. 
+Hand id: 1663069551 right
+Center position from center ultraleap(cm):6.70045e-11 8.8691e-34 9.84391e-13
+
+-------------------
+-------------------
+Frame 20745:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20746:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20747:1hands. 
+Hand id: 1663069551 right
+Center position from center ultraleap(cm):6.70045e-11 8.8691e-34 9.84391e-13
+
+-------------------
+-------------------
+Frame 20748:1hands. 
+Hand id: 909326128 right
+Center position from center ultraleap(cm):9.84394e-13 9.84394e-13 9.84394e-13
+
+-------------------
+-------------------
+Frame 20749:1hands. 
+Hand id: 1663069551 right
+Center position from center ultraleap(cm):6.70045e-11 8.8691e-34 9.84391e-13
+
+-------------------
+-------------------
+Frame 20750:1hands. 
+Hand id: 1663069551 right
+Center position from center ultraleap(cm):6.70045e-11 8.8691e-34 9.84391e-13
+
+-------------------
+-------------------
+Frame 20751:1hands. 
+Hand id: 543452769 right
+Center position from center ultraleap(cm):7.50188e+27 6.7036e+21 4.54482e+29
+
+-------------------
+-------------------
+Frame 20752:1hands. 
+Hand id: 1663069551 right
+Center position from center ultraleap(cm):6.70045e-11 8.8691e-34 9.84391e-13
+
+-------------------
+-------------------
+Frame 20753:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20754:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20755:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20756:1hands. 
+Hand id: 12 right
+Center position from center ultraleap(cm):5.33978 31.0394 6.80948
+
+-------------------
+-------------------
+Frame 20757:0hands. 
+-------------------
+-------------------
+Frame 20758:0hands. 
+-------------------
+-------------------
+Frame 20759:0hands. 
+-------------------
+-------------------
+Frame 20760:0hands. 
+-------------------
+-------------------
+Frame 20761:0hands. 
+-------------------
+-------------------
+Frame 20762:0hands. 
+-------------------
+-------------------
+Frame 20763:0hands. 
+-------------------
+-------------------
+Frame 20764:0hands. 
+-------------------
+-------------------
+Frame 20765:0hands. 
+-------------------
+-------------------
+Frame 20766:0hands. 
+-------------------
+
+-------------------
+Received image pair for frame 20600 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20601 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20602 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20603 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20604 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20605 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20606 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20607 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20608 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20609 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20610 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20611 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20612 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20613 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20614 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20615 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20616 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20617 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20618 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20619 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20620 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20621 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20622 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20623 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20624 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20625 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20626 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20627 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20628 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20629 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20630 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20631 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20632 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20633 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20634 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20635 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20636 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20637 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20638 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20639 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20640 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20641 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20642 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20643 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20644 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20645 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20646 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20647 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20648 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20649 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20650 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20651 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20652 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20653 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20654 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20655 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20656 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20657 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20658 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20659 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20660 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20661 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20662 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20663 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20664 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20665 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20666 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20667 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20668 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20669 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20670 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20671 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20672 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20673 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20674 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20675 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20676 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20677 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20678 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20679 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20680 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20681 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20682 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20683 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20684 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20685 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20686 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20687 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20688 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20689 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20690 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20691 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20692 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20693 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20694 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20695 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20696 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20697 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20698 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20699 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20700 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20701 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20702 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20703 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20704 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20705 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20706 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20707 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20708 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20709 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20710 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20711 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20712 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20713 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20714 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20715 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20716 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20717 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20718 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20719 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20720 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20721 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20723 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20724 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20725 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20726 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20727 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20728 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20729 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20730 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20731 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20732 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20733 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20734 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20735 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20736 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20737 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20738 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20739 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20740 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20741 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20742 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20743 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20744 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20745 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20746 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20747 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20748 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20749 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20750 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20751 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20752 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20753 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20754 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20755 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20756 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20757 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20758 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20759 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20760 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20761 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20762 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20763 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20764 with size 384x384
+-------------------
+-------------------
+Received image pair for frame 20765 with size 384x384
+-------------------
+

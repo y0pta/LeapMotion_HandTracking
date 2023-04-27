@@ -177,7 +177,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{64CDBBC7-3212-34CD-869A-4548C92C3F7E}</Project>
       <Name>leapc_test</Name>
     </ProjectReference>
-    <ProjectReference Include="D:\PROGRAMMING\CLion\leapMotion\cmake-build-release\libExampleConnection.vcxproj">
+    <ProjectReference Include="D:\PROGRAMMING\CLion\leapMotion\cmake-build-release\connection\libExampleConnection.vcxproj">
       <Project>{4562FE73-E953-3B19-B23B-07D23CB7EF93}</Project>
       <Name>libExampleConnection</Name>
     </ProjectReference>

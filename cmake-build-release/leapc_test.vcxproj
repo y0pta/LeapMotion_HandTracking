@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\3rdparty;D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -103,10 +103,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\3rdparty;D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\3rdparty;D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -126,7 +126,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>Debug\libExampleConnection.lib;..\LeapSDK\lib\x64\LeapC.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>connection\Debug\libExampleConnection.lib;..\LeapSDK\lib\x64\LeapC.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -141,7 +141,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\3rdparty;D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -158,10 +158,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\3rdparty;D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\3rdparty;D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -181,7 +181,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>Release\libExampleConnection.lib;..\LeapSDK\lib\x64\LeapC.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>connection\Release\libExampleConnection.lib;..\LeapSDK\lib\x64\LeapC.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -196,7 +196,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\3rdparty;D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -213,10 +213,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\3rdparty;D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\3rdparty;D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -236,7 +236,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>MinSizeRel\libExampleConnection.lib;..\LeapSDK\lib\x64\LeapC.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>connection\MinSizeRel\libExampleConnection.lib;..\LeapSDK\lib\x64\LeapC.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -251,7 +251,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\3rdparty;D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -267,10 +267,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\3rdparty;D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\PROGRAMMING\CLion\leapMotion\3rdparty;D:\PROGRAMMING\CLion\leapMotion\connection;D:\PROGRAMMING\CLion\leapMotion\LeapSDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -290,7 +290,7 @@ exit /b %1
 if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
     <Link>
-      <AdditionalDependencies>RelWithDebInfo\libExampleConnection.lib;..\LeapSDK\lib\x64\LeapC.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>connection\RelWithDebInfo\libExampleConnection.lib;..\LeapSDK\lib\x64\LeapC.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -362,6 +362,12 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="D:\PROGRAMMING\CLion\leapMotion\main.cpp" />
+    <ClCompile Include="D:\PROGRAMMING\CLion\leapMotion\LeapConnection.cpp" />
+    <ClInclude Include="D:\PROGRAMMING\CLion\leapMotion\LeapConnection.h" />
+    <ClCompile Include="D:\PROGRAMMING\CLion\leapMotion\LeapConnectionSerializer.cpp" />
+    <ClInclude Include="D:\PROGRAMMING\CLion\leapMotion\LeapConnectionSerializer.h" />
+    <ClCompile Include="D:\PROGRAMMING\CLion\leapMotion\Utils.cpp" />
+    <ClInclude Include="D:\PROGRAMMING\CLion\leapMotion\Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\PROGRAMMING\CLion\leapMotion\cmake-build-release\ZERO_CHECK.vcxproj">
@@ -370,7 +376,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="D:\PROGRAMMING\CLion\leapMotion\cmake-build-release\libExampleConnection.vcxproj">
+    <ProjectReference Include="D:\PROGRAMMING\CLion\leapMotion\cmake-build-release\connection\libExampleConnection.vcxproj">
       <Project>{4562FE73-E953-3B19-B23B-07D23CB7EF93}</Project>
       <Name>libExampleConnection</Name>
     </ProjectReference>

@@ -74,7 +74,7 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=/INCREMENTAL:NO
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/leapc
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/leapc_test
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/bin/Hostx64/x64/link.exe
@@ -198,24 +198,6 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-leapc_BINARY_DIR:STATIC=D:/PROGRAMMING/CLion/leapMotion/cmake-build-release
-
-//Value Computed by CMake
-leapc_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-leapc_SOURCE_DIR:STATIC=D:/PROGRAMMING/CLion/leapMotion
-
-//Value Computed by CMake
-leapc_example_BINARY_DIR:STATIC=D:/PROGRAMMING/CLion/leapMotion/cmake-build-release/connection
-
-//Value Computed by CMake
-leapc_example_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-leapc_example_SOURCE_DIR:STATIC=D:/PROGRAMMING/CLion/leapMotion/connection
-
-//Value Computed by CMake
 leapc_test_BINARY_DIR:STATIC=D:/PROGRAMMING/CLion/leapMotion/cmake-build-release
 
 //Value Computed by CMake
@@ -223,6 +205,15 @@ leapc_test_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 leapc_test_SOURCE_DIR:STATIC=D:/PROGRAMMING/CLion/leapMotion
+
+//Value Computed by CMake
+libExampleConnection_BINARY_DIR:STATIC=D:/PROGRAMMING/CLion/leapMotion/cmake-build-release/connection
+
+//Value Computed by CMake
+libExampleConnection_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+libExampleConnection_SOURCE_DIR:STATIC=D:/PROGRAMMING/CLion/leapMotion/connection
 
 
 ########################
@@ -309,7 +300,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MT
 CMAKE_MT-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //noop for ranlib
