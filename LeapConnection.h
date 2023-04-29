@@ -27,7 +27,8 @@ class LeapConnection {
 
         //-- Callbacks --
         std::function<void(LeapConnection& con)>                                         connection_callback;
-        std::function<void(LeapConnection& con, const LEAP_DEVICE_INFO *device)>         device_callback;
+        std::function<void(LeapConnection& con, const LEAP_DEVICE *device)>              device_callback;
+        std::function<void(LeapConnection& con, const LEAP_DEVICE_INFO *device)>         device_found_callback;
         std::function<void(LeapConnection& con)>                                         device_lost_callback;
         std::function<void(LeapConnection& con,
                             const eLeapDeviceStatus failure_code,
@@ -56,12 +57,14 @@ class LeapConnection {
                             const LEAP_TRACKING_MODE_EVENT *mode_event)>                 tracking_mode_callback;
 
         // -- Data access --
+        void clearAll();
         std::vector<LEAP_TRACKING_EVENT> trackingData() const
                                         { return  _trackingData; }
         std::vector<LEAP_IMAGE_EVENT> imagesData() const
                                         { return  _imagesData; }
         LEAP_DEVICE_INFO deviceInfo() const
                                         { return _deviceInfo; }
+
         public: // TODO: make private or protected, add getters and setters
             std::vector<LEAP_TRACKING_EVENT> _trackingData;
             std::vector<LEAP_IMAGE_EVENT> _imagesData;

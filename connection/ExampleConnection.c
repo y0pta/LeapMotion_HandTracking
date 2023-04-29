@@ -85,7 +85,16 @@ void CloseConnection(void){
   _isRunning = false;
   LeapCloseConnection(connectionHandle);
 #if defined(_MSC_VER)
-  WaitForSingleObject(pollingThread, INFINITE);
+  int status = WaitForSingleObject(pollingThread, INFINITE);
+    if (status == 0x00000080L)
+        printf("Wait abandoned");
+    else if (status == 0x00000000L)
+        printf("WAIT_OBJECT_0");
+    else if (status == 0x00000102L)
+        printf("WAIT_OBJECT_TIMEOUT");
+    else if (status == (DWORD)0xFFFFFFFF)
+        printf("WAIT_FAILED");
+    printf(GetLastError());
   CloseHandle(pollingThread);
 #else
   pthread_join(pollingThread, NULL);
@@ -156,6 +165,28 @@ static void handleDeviceEvent(const LEAP_DEVICE_EVENT *device_event){
   setDevice(&deviceProperties);
   if(ConnectionCallbacks.on_device_found){
     ConnectionCallbacks.on_device_found(&deviceProperties);
+  }
+  if(ConnectionCallbacks.on_device){
+      float* transform = malloc(16*sizeof(float));
+      eLeapRS status = LeapGetDeviceTransform(deviceHandle, transform);
+      switch (status) {
+          case eLeapRS_Success:
+              printf("Success\n");
+              break;
+          case eLeapRS_UnknownError:
+              printf( "Unknown error\n");
+              break;
+          case eLeapRS_InvalidArgument:
+              printf("Invalid argument\n");
+              break;
+          case eLeapRS_Unsupported:
+              printf("Unsupported request\n");
+              break;
+          default:
+              printf("Unknown error code\n");
+              break;
+      }
+      ConnectionCallbacks.on_device(&deviceHandle);
   }
 
   free(deviceProperties.serial);

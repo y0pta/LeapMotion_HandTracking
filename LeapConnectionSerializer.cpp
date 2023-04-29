@@ -6,6 +6,7 @@
 #include <sstream>
 #include <fstream>
 #include <iostream>
+#include <filesystem>
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
@@ -31,30 +32,13 @@ std::string LeapConnectionSerializer::deviceInfo(const LeapConnection& connectio
     std::ostringstream out;
 
     auto& devInfo = connection._deviceInfo;
-    std::string strDevStatus;
-    switch (devInfo.status) {
-        case
 
-    }
-    const char* string_view[] = {
-            stringify(eLeapDeviceStatus_Streaming),
-            stringify(eLeapDeviceStatus_Paused),
-            stringify(eLeapDeviceStatus_Robust),
-            stringify(eLeapDeviceStatus_Smudged),
-            stringify(eLeapDeviceStatus_LowResource),
-            stringify(eLeapDeviceStatus_UnknownFailure),
-            stringify(eLeapDeviceStatus_BadCalibration),
-            stringify(eLeapDeviceStatus_BadFirmware),
-            stringify(eLeapDeviceStatus_BadTransport),
-            stringify(eLeapDeviceStatus_BadControl),
-    };
-    return string_view[status];
     out << "-------------------\n";
     out << "Found device: " << devInfo.serial << std::endl;
     out << "HFOV:" << devInfo.h_fov << std::endl;
     out << "VFOV:" << devInfo.v_fov << std::endl;
     out << "Max range(micrometers):" << devInfo.range << std::endl;
-    out << "Status: " << toStr(devInfo.status) << std::endl;
+    out << "Status: " << LeapDeviceStatus::toString(devInfo.status) << std::endl;
     out << "-------------------\n";
 
     return out.str();
@@ -98,6 +82,15 @@ std::string LeapConnectionSerializer::frameInfo(const LeapConnection& connection
 }
 
 void LeapConnectionSerializer::saveImages(const LeapConnection& connection){
+    // create directory for storage
+    std::filesystem::path folderPath = "images";
+    if (!std::filesystem::exists(folderPath))
+    {
+        if (!std::filesystem::create_directory(folderPath))
+            std::cerr << "Error: failed to create directory!" << std::endl;
+    }
+
+    // write image data
     int i = 0;
     for(auto& img : connection._imagesData) {
         std::string fname = "images/image" + std::to_string(img.info.frame_id) + ".png";

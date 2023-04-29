@@ -15,7 +15,7 @@ static void OnConnect(void){
 
 /** Callback for when a device is found. */
 static void OnDevice(const LEAP_DEVICE_INFO *props){
-    __connection->device_callback(*__connection, props);
+    __connection->device_found_callback(*__connection, props);
 }
 
 /** Callback for when a frame of tracking data is available. */
@@ -26,6 +26,11 @@ void OnFrame(const LEAP_TRACKING_EVENT *frame) {
 /** Callback for when an image is available. */
 static void OnImage(const LEAP_IMAGE_EVENT *imageEvent) {
     __connection->image_callback(*__connection, imageEvent);
+}
+
+/** Callback when device was lost. */
+static void OnDeviceLost() {
+    std::cout << "Device was lost" << std::endl;
 }
 
 void onDeviceCallback(LeapConnection& con, const LEAP_DEVICE_INFO *props) {
@@ -40,18 +45,19 @@ void onDeviceCallback(LeapConnection& con, const LEAP_DEVICE_INFO *props) {
 }
 
 void onFrameCallback(LeapConnection& con, const LEAP_TRACKING_EVENT *frame){
-    std::cout << "Frame received. ID: " << frame->info.frame_id << std::endl;
+    //std::cout << "Frame received. ID: " << frame->info.frame_id << std::endl;
 
     // copy all data, including pointers
     LEAP_TRACKING_EVENT frame_deepcopy = *frame;
 
-    auto idx = con._hands.size();
+
     for (int i = 0; i < frame->nHands; ++i)
     {
+        auto idx = con._hands.size();
         con._hands.push_back(frame->pHands[i]);
-        frame_deepcopy.pHands[i] = con._hands[i];
+        frame_deepcopy.pHands[i] = con._hands[idx];
     }
-    con._trackingData.push_back(std::move(frame_deepcopy));
+    con._trackingData.push_back(frame_deepcopy);
 }
 
 std::vector<char> copyImg(const LEAP_IMAGE& img){
@@ -65,7 +71,7 @@ std::vector<char> copyImg(const LEAP_IMAGE& img){
 }
 
 void onImageCallback(LeapConnection& con, const LEAP_IMAGE_EVENT *imageEvent){
-    std::cout << "Image received. Frame ID: " << imageEvent->info.frame_id << std::endl;
+    //std::cout << "Image received. Frame ID: " << imageEvent->info.frame_id << std::endl;
 
     auto image_event_copy = *imageEvent;
 
@@ -98,7 +104,9 @@ LeapConnection::LeapConnection() {    //Set callback function pointers
     ConnectionCallbacks.on_device_found        = &OnDevice;
     ConnectionCallbacks.on_frame               = &OnFrame;
     ConnectionCallbacks.on_image               = &OnImage;
+    ConnectionCallbacks.on_device_lost         = &OnDeviceLost;
 
+    setDefaultCallbacks();
     __connection = this;
 }
 
@@ -112,7 +120,7 @@ void LeapConnection::open()
 }
 
 void LeapConnection::setDefaultCallbacks() {
-    device_callback = &onDeviceCallback;
+    device_found_callback = &onDeviceCallback;
     tracking_callback = &onFrameCallback;
     image_callback = &onImageCallback;
 }
@@ -123,4 +131,13 @@ void LeapConnection::close() {
         DestroyConnection();
         __connection = nullptr;
     }
+}
+
+void LeapConnection::clearAll(){
+    _images.clear();
+    _trackingData.clear();
+    _imagesData.clear();
+    _hands.clear();
+    _distMatrices.clear();
+    _serial.clear();
 }

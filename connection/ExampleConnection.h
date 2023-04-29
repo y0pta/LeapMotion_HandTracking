@@ -25,7 +25,8 @@ extern bool IsConnected;
 
 /* Callback function pointers */
 typedef void (*connection_callback)     (void);
-typedef void (*device_callback)         (const LEAP_DEVICE_INFO *device);
+typedef void (*device_callback)         (const LEAP_DEVICE* device);
+typedef void (*device_found_callback)   (const LEAP_DEVICE_INFO *device);
 typedef void (*device_lost_callback)    (void);
 typedef void (*device_failure_callback) (const eLeapDeviceStatus failure_code,
                                          const LEAP_DEVICE failed_device);
@@ -45,7 +46,8 @@ typedef void (*tracking_mode_callback)(const LEAP_TRACKING_MODE_EVENT *mode_even
 struct Callbacks{
   connection_callback      on_connection;
   connection_callback      on_connection_lost;
-  device_callback          on_device_found;
+  device_callback          on_device;
+  device_found_callback    on_device_found;
   device_lost_callback     on_device_lost;
   device_failure_callback  on_device_failure;
   policy_callback          on_policy;
