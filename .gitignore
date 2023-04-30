@@ -1,3 +1,5 @@
 cmake-build-debug*
 .idea*
 cmake_cmd*
+build*
+LeapSDK/samples/build*

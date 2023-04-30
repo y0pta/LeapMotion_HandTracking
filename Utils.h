@@ -20,6 +20,7 @@ namespace OpencvUtils {
     cv::Mat voidPtrToMat(void *data, int width, int height, int channels);
     void imgConcat(cv::Mat& img1, cv::Mat& img2, cv::Mat& combined);
     void printTextOnImage(cv::Mat& img, const std::string& text);
+    bool isPointInsideParallelogram(const cv::Point2f& point, const cv::Point2f& v1, const cv::Point2f& v2, const cv::Point2f& v3, const cv::Point2f& v4);
 }
 
 namespace LeapVectorSerialization{

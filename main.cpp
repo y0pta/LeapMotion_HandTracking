@@ -17,52 +17,49 @@ static bool calib_event = false;
 static std::mutex mutex_calib;
 static int last_key = 0;
 static float delay = 10;
-static std::vector<LEAP_VECTOR> calib_points; // from top-left to top-right counterclockwise
 static float table_dist;
 static cv::Mat cur_image(100, 100, CV_8UC1, 1);
 static cv::Mat display(100, 100, CV_8UC3, Scalar(1,1,1));
 static std::mutex mutex;
+
 static int w, h;
+static std::vector<LEAP_VECTOR> calib_points; // from top-left to top-right counterclockwise
+static cv::Point2f topLeft, bottomLeft, bottomRight, topRight;
+static int disp_x, disp_y = 0;
+static float last_h = 300;
+static float tap_threshold = 10;
+static bool press_event = false;
+static bool move_event = false;
 
 /** Match coords on index finger with display */
-bool attachHandToDisplay(LEAP_HAND& hand, int& disp_x, int& disp_y ){
+bool attachHandToDisplay(LEAP_VECTOR& coords3D, int& disp_x, int& disp_y, float& z){
     // x - left, y - down, z - on me
-    auto& coords = hand.index.distal.next_joint;
-    cv::Point2f point(coords.x, coords.z);
+    cv::Point2f point(coords3D.x, coords3D.z);
 
-    float threshold = 50;
+    float threshold = 150;
     // check height
-    if (fabs(table_dist - coords.y) > threshold)
+    if (fabs(table_dist - coords3D.y) > threshold)
         return false;
+
     // check if coord inside calib parallelogram
-    cv::Point2f v1 = cv::Point2f(calib_points[3].x, calib_points[3].z) -
-                        cv::Point2f(calib_points[0].x, calib_points[0].z);
-    cv::Point2f v2 =  cv::Point2f(calib_points[1].x, calib_points[1].z) -
-                        cv::Point2f(calib_points[0].x, calib_points[0].z);
+    if (!OpencvUtils::isPointInsideParallelogram(point, topLeft, bottomLeft, bottomRight, topRight))
+        return false;
 
-    float crossProduct = v1.cross(v2);
+    // calc coords
+    auto basis_x = cv::Point2f(bottomLeft - topLeft);
+    auto basis_y = cv::Point2f(topRight - topLeft);
 
-    // Check if the cross product is positive or negative
-    // A positive cross product means the point is on the right side of the parallelogram, negative - on the left side
-    if (crossProduct > 0) {
-        // Calculate the vectors from the point to the vertices of the parallelogram
-        cv::Vec2f v3 = cv::Point2f(calib_points[0].x, calib_points[0].z) - point;
-        cv::Vec2f v4 = cv::Point2f(calib_points[3].x, calib_points[3].z) - point;
-        cv::Vec2f v5 = cv::Point2f(calib_points[1].x, calib_points[1].z) - point;
+    cv::Mat A = (cv::Mat_<float>(2, 2) << basis_x.x,basis_y.x,
+                                          basis_x.y, basis_y.y);
+    cv::Mat A_inv;
+    cv::invert(A, A_inv);
+    cv::Mat point_wc = (cv::Mat_<float>(2, 1) << point.x - topLeft.x, point.y - topLeft.y);
+    cv::Mat point_p = A_inv * point_wc;
+    disp_x = point_p.at<float>(0,0) * h;
+    disp_y = point_p.at<float>(1,0) * w;
+    //std::cout << "Point attached to screen:" << x << " " << y <<std::endl;
 
-        // Calculate the cross products of the vectors
-        float cross1 = v1.cross(v3);
-        float cross2 = v2.cross(v4);
-        float cross3 = v1.cross(v5);
-
-        // Check if all cross products have the same sign
-        if (!(cross1 > 0 && cross2 > 0 && cross3 > 0) || (cross1 < 0 && cross2 < 0 && cross3 < 0)) {
-            return false;
-        }
-    }
-
-    // TODO: calc coords
-
+    z = coords3D.y;
     return true;
 }
 
@@ -127,9 +124,13 @@ void frameDisplayCallback(LeapConnection& con, const LEAP_TRACKING_EVENT *frame)
         for (int i = 0; i < frame->nHands; ++i) {
             auto &hand = frame->pHands[i];
             int x, y;
-            if (attachHandToDisplay(hand, x, y)) {
+            if (attachHandToDisplay(hand.index.distal.next_joint, x, y, last_h)) {
                 mutex.lock();
-                circle(display, Point(x, y), 4, Scalar(0, 0, 1), 2);
+                disp_x = x;
+                disp_y = y;
+                move_event = true;
+                if (fabs(last_h - table_dist) < tap_threshold)
+                    press_event = true;
                 mutex.unlock();
             }
         }
@@ -165,14 +166,24 @@ void getCalibPoints(){
 
 /** Main function for display cursor depending on hand pose*/
 void displayHandCursor(std::vector<LEAP_VECTOR>& calib_points){
-    display = cv::Mat(h, w, CV_8UC3, Scalar(0,0,0));
+    display = cv::Mat(h, w, CV_8UC3, cv::Scalar(255, 255, 255));
+
     cv::namedWindow("Display window", cv::WINDOW_FREERATIO);
 
     delay = 1000 / 40.0;
     while (cv::waitKey(delay) != 27) {
+        display = cv::Mat(h, w, CV_8UC3, cv::Scalar(255, 255, 255));
         mutex.lock();
-        cv::imshow("Display window", display);
+        if (move_event) {
+            circle(display, Point(disp_y, disp_x), 20, cv::Scalar(0, 0, 255), 2);
+            move_event = false;
+        }
+        if (press_event) {
+            circle(display, Point(disp_y, disp_x), 40, cv::Scalar(0, 255, 0), 5);
+            press_event = false;
+        }
         mutex.unlock();
+        cv::imshow("Display window", display);
     }
     destroyAllWindows();
 }
@@ -181,14 +192,18 @@ void displayHandCursor(std::vector<LEAP_VECTOR>& calib_points){
 void calibrate(){
     table_dist = (calib_points[0].y + calib_points[1].y + calib_points[2].y + calib_points[3].y) / 4.0;
 
-    cv::Vec2f vertical(calib_points[3].x - calib_points[0].x,
-                  calib_points[3].z - calib_points[0].z);
-    cv::Vec2f horizontal(calib_points[1].x - calib_points[0].x,
-                       calib_points[1].z - calib_points[0].z);
+    topLeft = cv::Point2f(calib_points[0].x, calib_points[0].z);
+    bottomLeft = cv::Point2f(calib_points[1].x, calib_points[1].z);
+    bottomRight = cv::Point2f(calib_points[2].x, calib_points[2].z);
+    topRight = cv::Point2f(calib_points[3].x, calib_points[3].z);
+
+    cv::Vec2f vertical = topRight - topLeft;
+    cv::Vec2f horizontal = bottomLeft - topLeft;
+
     float width = cv::norm(vertical);
     float height = cv::norm(horizontal);
 
-    w = 500.0 * height / width;
+    w = 500.0 * width / height;
     h = 500.0;
 }
 
@@ -203,7 +218,8 @@ int main() {
      *
      * Image callbacks:
      * imageCallback - capture stereo*/
-    //connection.tracking_callback = frameCalibCallback;
+
+    //connection.tracking_callback = frameCalibCallbackDebug;
     connection.image_callback = imageCallback;
     connection.tracking_callback = frameDisplayCallback;
 
@@ -213,10 +229,11 @@ int main() {
     /** Load calibration 3D points*/
     calib_points = LeapVectorSerialization::readCalibPoints("calib.txt");
     calibrate();
+    std::cout << "Screen w, h:" << w << " " << h << std::endl;
 
     connection.open();
 
-    // getCalibPoints();
+    //getCalibPoints();
     // LeapVectorSerialization::writeCalibPoints(calib_points, "calib.txt");
 
     displayHandCursor(calib_points);

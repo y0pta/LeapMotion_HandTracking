@@ -159,4 +159,33 @@ namespace OpencvUtils {
         cv::putText(img, text, cv::Point(x, y), fontFace, fontScale, cv::Scalar(255, 255, 255), thickness);
     }
 
+    bool isPointInsideParallelogram(const cv::Point2f& point, const cv::Point2f& v1, const cv::Point2f& v2, const cv::Point2f& v3, const cv::Point2f& v4){
+        // Calculate the vectors for the edges of the parallelogram
+        cv::Point2f edge1 = v2 - v1;
+        cv::Point2f edge2 = v3 - v2;
+        cv::Point2f edge3 = v4 - v3;
+        cv::Point2f edge4 = v1 - v4;
+
+        // Calculate the vectors from the vertices to the point
+        cv::Point2f pointVector1 = point - v1;
+        cv::Point2f pointVector2 = point - v2;
+        cv::Point2f pointVector3 = point - v3;
+        cv::Point2f pointVector4 = point - v4;
+
+        // Calculate the cross products of each edge vector and point vector
+        float crossProduct1 = edge1.cross(pointVector1);
+        float crossProduct2 = edge2.cross(pointVector2);
+        float crossProduct3 = edge3.cross(pointVector3);
+        float crossProduct4 = edge4.cross(pointVector4);
+
+        // If the signs of the cross products are all the same, the point is inside the parallelogram
+        if ((crossProduct1 >= 0 && crossProduct2 >= 0 && crossProduct3 >= 0 && crossProduct4 >= 0) ||
+            (crossProduct1 <= 0 && crossProduct2 <= 0 && crossProduct3 <= 0 && crossProduct4 <= 0))
+        {
+            return true;
+        }
+
+        // If the signs of the cross products are not all the same, the point is outside the parallelogram
+        return false;
+    }
 }
