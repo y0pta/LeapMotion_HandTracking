@@ -1,0 +1,40 @@
+# Hand cursor tracker
+### Description
+----
+The app is a mouse cursor control application that detects the position of the hand on any horizontal surface and displays it on the screen, using [Leap Stereo IR](https://www.ultraleap.com/product/stereo-ir-170/). Essentially, the application matches the horizontal surface and the application window. The application also recognizes the gesture of pressing on the surface. Collecting data from the Leap Stereo IR device allows determine the position of the hands in 3D space. The package consists of two parts: 
+1) the application for controlling the mouse cursor with the hand; 
+2) the calibration application. 
+#### Calibration
+To calibrate, you need:
+1) select any horizontal surface;
+2) place the Leap Stereo vertically above this surface;
+3) walk through each of the vertices of the target surface with your index finger (an area on the vertical surface should be a rectangle)
+4) press the R key to record the calibration point.
+#### Requirements
+----
+1. OpenCV 4+
+2. [LeapSDK](https://developer.leapmotion.com/tracking-software-download)
+#### Notes
+----
+Software, which Ultraleap provides with their devices:
+1) XR integration bindings (solutions for VR);
+2) TouchFree high-level app;
+3) LeapC - low-level c-library.
+
+TouchFree is the app for displays, with calibration interface. It could be used with ultraleap contollers for cursor-control on Windows. According to the idea of developers, it might replace mouse and you will be able to move cursor across the screen with ypur hands.
+While trying it, I found out the main problem - TouchFree support only one single click gesture. Additional problem is that cursor 
+is not properly detecting, causing cursor fluctuations with the screen.
+You can check it [here](https://developer.leapmotion.com/?_gl=1*awh1qy*_ga*MTc2ODQ1MzA2MS4xNjgyMzM2MDUx*_ga_5G8B19JLWG*MTY4Mjg1MTQ2OC4xMy4xLjE2ODI4NTI4MDEuNTguMC4w#)
+
+LeapC is the low-level C-api, which provides access to the device. 
+Functions:
+1) obtain images from 2 cameras of device;
+2) get frame rate;
+3) get 3D position of each joint of the detected hands.
+Unfortunately, library is being developing and Ultraleap frequently changes the API architecture and functions. 
+2.x - 3.x provide proper docs, C++, python 2.7 and other languages APIs. Clear usage, but some function are defined depricated 
+in later versions, due to architecture mistakes.
+4.x - still provide good docs, but I didn't find sources.
+5.x - provide small guide and docs on Ultraleap website with couple of https://docs.ultraleap.com/tracking-api/ examples.
+Using the api, I found out that device info don't provide maximum capture range as well as horizontal and vertical fov of device.
+Making experiments, I have set the maximum acceptable distance for hand recognition 70cm.
