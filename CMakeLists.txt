@@ -12,7 +12,7 @@ set(SOURCES main.cpp
         LeapConnection.cpp
         LeapConnection.h
         LeapConnectionSerializer.cpp
-        LeapConnectionSerializer.h Utils.cpp Utils.h)
+        LeapConnectionSerializer.h Utils.cpp Utils.h CalibrationApp.cpp CalibrationApp.h CalibData.cpp CalibData.h TrackingApp.cpp TrackingApp.h)
 
 # ADD EXE
 add_executable(${PROJECT_NAME} ${SOURCES})

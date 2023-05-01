@@ -1,0 +1,23 @@
+
+Software, which Ultraleap provides with their devices:
+1) XR integration bindings (solutions for VR);
+2) TouchFree high-level app;
+3) LeapC - low-level c-library.
+
+TouchFree is the app for displays, with calibration interface. It could be used with ultraleap contollers for cursor-control on Windows. According to the idea of developers, it might replace mouse and you will be able to move cursor across the screen with ypur hands.
+While trying it, I found out the main problem - TouchFree support only one single click gesture. Additional problem is that cursor 
+is not properly detecting, causing cursor fluctuations with the screen.
+You can check it here https://developer.leapmotion.com/?_gl=1*awh1qy*_ga*MTc2ODQ1MzA2MS4xNjgyMzM2MDUx*_ga_5G8B19JLWG*MTY4Mjg1MTQ2OC4xMy4xLjE2ODI4NTI4MDEuNTguMC4w#.
+
+LeapC is the low-level C-api, which provides access to the device. 
+Functions:
+1) obtain images from 2 cameras of device;
+2) get frame rate;
+3) get 3D position of each joint of the detected hands.
+Unfortunately, library is being developing and Ultraleap frequently changes the API architecture and functions. 
+2.x - 3.x provide proper docs, C++, python 2.7 and other languages APIs. Clear usage, but some function are defined depricated 
+in later versions, due to architecture mistakes.
+4.x - still provide good docs, but I didn't find sources.
+5.x - provide small guide and docs on Ultraleap website with couple of https://docs.ultraleap.com/tracking-api/
+Using the api, I found out that device info don't provide maximum capture range as well as horizontal and vertical fov of device.
+Making experiments, I have set the maximum acceptable distance for hand recognition 70cm.
