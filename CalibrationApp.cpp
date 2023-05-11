@@ -64,7 +64,7 @@ void frameCalibCallback(LeapConnection& con, const LEAP_TRACKING_EVENT *frame){
 }
 
 CalibrationApp::CalibrationApp(){
-    cv::Mat curImage(100, 100, CV_8UC1, 1);
+    curImage = cv::Mat(100, 100, CV_8UC1, cv::Scalar(1));
     __app = std::unique_ptr<CalibrationApp>(this);
 }
 
@@ -76,7 +76,7 @@ void CalibrationApp::run() {
     LeapConnection connection;
 
     connection.image_callback = imageCallback;
-    connection.tracking_callback = frameCalibCallback;
+    connection.tracking_callback = frameCalibCallbackDebug;//frameCalibCallback;
 
     connection.open();
     bool result = _getCalibrationPoints();
@@ -89,6 +89,7 @@ void CalibrationApp::run() {
 bool CalibrationApp::_getCalibrationPoints() {
     // TODO: process false case
     cv::namedWindow("Display window", cv::WINDOW_FREERATIO);
+    isCalibrating = true;
 
     while (isCalibrating) {
         image_mutex.lock();

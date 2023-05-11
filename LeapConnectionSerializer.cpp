@@ -7,10 +7,12 @@
 #include <fstream>
 #include <iostream>
 #include <filesystem>
+#ifdef STB
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
+#endif
 #include "Utils.h"
 
 void LeapConnectionSerializer::serialize(const std::string& filename, const LeapConnection& connection){
@@ -94,6 +96,7 @@ void LeapConnectionSerializer::saveImages(const LeapConnection& connection){
     int i = 0;
     for(auto& img : connection._imagesData) {
         std::string fname = "images/image" + std::to_string(img.info.frame_id) + ".png";
+#ifdef STB
         stbi_write_png(fname.c_str(),
                        img.image[0].properties.width,
                        img.image[0].properties.height,
@@ -106,6 +109,7 @@ void LeapConnectionSerializer::saveImages(const LeapConnection& connection){
                        1,
                        static_cast<void *>(img.image->data),
                        img.image[1].properties.width);
+#endif
         ++i;
     }
 }
