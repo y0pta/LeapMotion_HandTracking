@@ -9,6 +9,7 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc.hpp>
 #include <memory>
+#include "CalibrationArea.h"
 
 class TrackingApp {
     public:
@@ -27,7 +28,7 @@ class TrackingApp {
 
         std::atomic_bool press_event = false;
         std::atomic_bool move_event = false;
-        CalibData _calibration;
+        CalibrationArea _calibration;
 
     public:
         bool _attachHandToScreen(LEAP_VECTOR& coords3D);

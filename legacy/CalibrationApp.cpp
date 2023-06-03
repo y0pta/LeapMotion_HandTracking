@@ -6,6 +6,7 @@
 #include "LeapConnection.h"
 #include "CalibData.h"
 #include <memory>
+#include <opencv2/calib3d.hpp>
 
 std::unique_ptr<CalibrationApp> __app;
 
@@ -21,7 +22,7 @@ void imageCallback(LeapConnection& con, const LEAP_IMAGE_EVENT *imageEvent){
         cv::Mat img1 = OpencvUtils::voidPtrToMat(imgVoidPtr1, imgW, imgH, 1);
 
         __app->image_mutex.lock();
-        OpencvUtils::imgConcat(img0, img1, __app->curImage);
+        OpencvUtils::imgConcat(img0, img1, *__app->curImage);
         __app->image_mutex.unlock();
     }
 }
@@ -64,7 +65,7 @@ void frameCalibCallback(LeapConnection& con, const LEAP_TRACKING_EVENT *frame){
 }
 
 CalibrationApp::CalibrationApp(){
-    curImage = cv::Mat(100, 100, CV_8UC1, cv::Scalar(1));
+    curImage = new cv::Mat(100, 100, CV_8UC1, cv::Scalar(1));
     __app = std::unique_ptr<CalibrationApp>(this);
 }
 
@@ -73,17 +74,24 @@ CalibrationApp::~CalibrationApp() {
 }
 
 void CalibrationApp::run() {
-    LeapConnection connection;
+    _connection.image_callback = imageCallback;
+    _connection.tracking_callback = frameCalibCallback;//frameCalibCallback?????
 
-    connection.image_callback = imageCallback;
-    connection.tracking_callback = frameCalibCallbackDebug;//frameCalibCallback;
-
-    connection.open();
+    _connection.open();
     bool result = _getCalibrationPoints();
-    connection.close();
+    _connection.close();
 
     if (result)
         _data.saveCalibData("calib.txt");
+}
+
+void drawCalibPoints(CalibrationApp* app){
+    for (auto& p : app->calibrationPoints){
+        auto pixel = app->_connection.getPixelFrom3D(eLeapPerspectiveType_stereo_left, p);
+        std::cout << pixel.x << ' '<<
+                 pixel.y << std::endl;
+        cv::circle(*app->curImage, cv::Point(pixel.x, pixel.y), 3, cv::Scalar(100, 255, 100), 4);
+    }
 }
 
 bool CalibrationApp::_getCalibrationPoints() {
@@ -91,9 +99,11 @@ bool CalibrationApp::_getCalibrationPoints() {
     cv::namedWindow("Display window", cv::WINDOW_FREERATIO);
     isCalibrating = true;
 
+    OpencvUtils::printTextOnImage(*curImage, "Please, set index finger on the top left corner");
     while (isCalibrating) {
         image_mutex.lock();
-        imshow("Display window", curImage);
+        drawCalibPoints(this);
+        imshow("Display window", *curImage);
         image_mutex.unlock();
         last_key = cv::waitKey(delay);
         // ESC key
@@ -105,8 +115,8 @@ bool CalibrationApp::_getCalibrationPoints() {
             recordEvent = true;
         }
     }
-    OpencvUtils::printTextOnImage(curImage, "Calibration done.");
-    imshow("Display window", curImage);
+    OpencvUtils::printTextOnImage(*curImage, "Calibration done.");
+    imshow("Display window", *curImage);
 
     // save calib points
     auto tl = cv::Point3f(calibrationPoints[0].x, calibrationPoints[0].y, calibrationPoints[0].z);
@@ -117,4 +127,5 @@ bool CalibrationApp::_getCalibrationPoints() {
     cv::waitKey(3000);
 
     cv::destroyAllWindows();
+    return true;
 }

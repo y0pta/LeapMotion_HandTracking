@@ -14,8 +14,8 @@ class LeapConnectionSerializer {
         static std::string deviceInfo(const LeapConnection& connection);
         static std::string imageInfo(const LeapConnection& connection);
         static std::string frameInfo(const LeapConnection& connection);
+        static std::string distorsionGrid(const LeapConnection& connection);
         static void saveImages(const LeapConnection& connection);
-
 };
 
 #endif //LEAPC_TEST_LEAPCONNECTIONSERIALIZER_H

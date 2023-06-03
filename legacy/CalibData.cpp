@@ -41,7 +41,7 @@ bool CalibData::saveCalibData(const std::string& filename){
     }
 
     // Write comment
-    file << "# Calibration points in order: topLeft bottomLeft bottomRight topRight" << std::endl;
+    file << "# CalibrationArea points in order: topLeft bottomLeft bottomRight topRight" << std::endl;
 
     // Write calibration points
     file << _topLeft.x << " " << _topLeft.y << " " << _topLeft.z << std::endl;

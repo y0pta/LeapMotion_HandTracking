@@ -12,6 +12,9 @@
 #include "stb_image.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
+#else
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/highgui.hpp>
 #endif
 #include "Utils.h"
 
@@ -83,6 +86,23 @@ std::string LeapConnectionSerializer::frameInfo(const LeapConnection& connection
     return out.str();
 }
 
+std::string LeapConnectionSerializer::distorsionGrid(const LeapConnection& connection){
+    std::ostringstream out;
+
+    auto& d = connection._distMatrixLeft;
+
+    out << d.rows << " " << d.cols << std::endl;
+    for (int row = 0; row < d.rows; ++row) {
+        for (int col = 0; col < d.cols; ++col) {
+            cv::Vec2f pixel = d.at<cv::Vec2f>(row, col);
+            out << pixel[0] << " " << pixel[1] << " ";
+        }
+        out << std::endl;
+    }
+
+    return out.str();
+}
+
 void LeapConnectionSerializer::saveImages(const LeapConnection& connection){
     // create directory for storage
     std::filesystem::path folderPath = "images";
@@ -95,7 +115,8 @@ void LeapConnectionSerializer::saveImages(const LeapConnection& connection){
     // write image data
     int i = 0;
     for(auto& img : connection._imagesData) {
-        std::string fname = "images/image" + std::to_string(img.info.frame_id) + ".png";
+        std::string lfname = "images/image" + std::to_string(img.info.frame_id) + "L.png";
+        std::string rfname = "images/image" + std::to_string(img.info.frame_id) + "R.png";
 #ifdef STB
         stbi_write_png(fname.c_str(),
                        img.image[0].properties.width,
@@ -109,6 +130,15 @@ void LeapConnectionSerializer::saveImages(const LeapConnection& connection){
                        1,
                        static_cast<void *>(img.image->data),
                        img.image[1].properties.width);
+#else
+        cv::Mat image = cv::Mat(img.image->properties.height,
+                                img.image->properties.width, CV_8UC1,
+                                img.image[0].data);
+        cv::imwrite(lfname, image);
+        image = cv::Mat(img.image->properties.height,
+                                img.image->properties.width, CV_8UC1,
+                                img.image[1].data);
+        cv::imwrite(rfname, image);
 #endif
         ++i;
     }

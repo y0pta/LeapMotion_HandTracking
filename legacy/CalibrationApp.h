@@ -18,13 +18,14 @@ class CalibrationApp {
         void run();
 
     public:
+        LeapConnection _connection;
         std::vector<LEAP_VECTOR> calibrationPoints;
         std::atomic_bool isCalibrating = false;
         std::atomic_bool recordEvent = false;
         std::atomic_int last_key = 0;
         float delay = 10;
         std::mutex image_mutex;
-        cv::Mat curImage;
+        cv::Mat* curImage; // TODO: matrix throw exception, when deleting
 
     private:
         bool _getCalibrationPoints();

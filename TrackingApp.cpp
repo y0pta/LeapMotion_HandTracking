@@ -14,10 +14,13 @@ void frameDisplayCallback(LeapConnection& con, const LEAP_TRACKING_EVENT *frame)
         for (int i = 0; i < frame->nHands; ++i) {
             auto &hand = frame->pHands[i];
 
-            if (__app->_attachHandToScreen(hand.index.distal.next_joint)) {
+            auto& indexFinger = hand.index.distal.next_joint;
+            if (__app->_attachHandToScreen(indexFinger)) {
                 __app->move_event = true;
-                auto table_h = __app->_calibration.tableDist();
-                if (fabs(__app->last_h - table_h) < __app->tap_threshold)
+                auto surfaceDistance = __app->_calibration.pointToSurfaceDistance(cv::Point3f(indexFinger.x,
+                                                                                      indexFinger.y,
+                                                                                      indexFinger.z));
+                if (fabs(surfaceDistance) < __app->tap_threshold)
                     __app->press_event = true;
             }
         }
@@ -35,8 +38,8 @@ void TrackingApp::run(){
     LeapConnection connection;
     connection.tracking_callback = frameDisplayCallback;
 
-    _calibration = CalibData("calib.txt");
-    _calibration.setInteractionAreaDistance(100);
+    _calibration = CalibrationArea("calib.txt");
+    _calibration.calibrate();
 
     connection.open();
     _trackingHandCursor();
@@ -54,11 +57,11 @@ void TrackingApp::_trackingHandCursor(){
         display_image = cv::Mat(h, w, CV_8UC3, cv::Scalar(255, 255, 255));
 
         if (move_event) {
-            circle(display_image, cv::Point(y, x), 20, cv::Scalar(0, 0, 255), 2);
+            circle(display_image, cv::Point(x, y), 20, cv::Scalar(0, 0, 255), 2);
             move_event = false;
         }
         if (press_event) {
-            circle(display_image, cv::Point(y, x), 40, cv::Scalar(0, 255, 0), 5);
+            circle(display_image, cv::Point(x, y), 40, cv::Scalar(0, 255, 0), 5);
             press_event = false;
         }
 
@@ -69,30 +72,15 @@ void TrackingApp::_trackingHandCursor(){
 
 bool TrackingApp::_attachHandToScreen(LEAP_VECTOR& coords3D){
     // x - left, y - down, z - on me
+    cv::Point3f point = {coords3D.x, coords3D.y, coords3D.z};
 
     // check if coord inside interaction area
-    if (!_calibration.isInsideInteractionArea(cv::Point3f(coords3D.x, coords3D.y, coords3D.z)))
+    if (!_calibration.isPointInside(point))
         return false;
 
-    // calc coords
-    cv::Point2f point(coords3D.x, coords3D.z);
+    cv::Point2f uv = _calibration.findPointUV(point);
+    x = uv.x * w;
+    y = uv.y * h;
 
-    auto bottomLeft = _calibration.bottomLeft2D();
-    auto topLeft = _calibration.topLeft2D();
-    auto topRight = _calibration.topRight2D();
-
-    auto basis_x = cv::Point2f(bottomLeft - topLeft);
-    auto basis_y = cv::Point2f(topRight - topLeft);
-
-    cv::Mat A = (cv::Mat_<float>(2, 2) << basis_x.x,basis_y.x, basis_x.y, basis_y.y);
-    cv::Mat A_inv;
-    cv::invert(A, A_inv);
-    cv::Mat point_wc = (cv::Mat_<float>(2, 1) << point.x - topLeft.x, point.y - topLeft.y);
-    cv::Mat point_p = A_inv * point_wc;
-    x = point_p.at<float>(0,0) * h;
-    y = point_p.at<float>(1,0) * w;
-    //std::cout << "Point attached to screen:" << x << " " << y <<std::endl;
-
-    last_h = coords3D.y;
     return true;
 }

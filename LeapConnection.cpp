@@ -14,8 +14,13 @@ static void OnConnect(void){
 }
 
 /** Callback for when a device is found. */
-static void OnDevice(const LEAP_DEVICE_INFO *props){
+static void OnDeviceFound(const LEAP_DEVICE_INFO *props){
     __connection->device_found_callback(*__connection, props);
+}
+
+/** Callback for when a device. */
+static void OnDevice(const LEAP_DEVICE *dev){
+    __connection->device_callback(*__connection, dev);
 }
 
 /** Callback for when a frame of tracking data is available. */
@@ -33,7 +38,11 @@ static void OnDeviceLost() {
     std::cout << "Device was lost" << std::endl;
 }
 
-void onDeviceCallback(LeapConnection& con, const LEAP_DEVICE_INFO *props) {
+void onDeviceCallback(LeapConnection& con, const LEAP_DEVICE *device){
+    //con._devicePtr = std::unique_ptr<LEAP_DEVICE>(const_cast<LEAP_DEVICE*>(device));
+}
+
+void onDeviceFoundCallback(LeapConnection& con, const LEAP_DEVICE_INFO *props) {
     std::cout << "Device info received. Device: " << props->serial << std::endl;
     std::cout << "HFOV:" << props->h_fov << std::endl;
     std::cout << "VFOV:" << props->v_fov << std::endl;
@@ -87,21 +96,33 @@ void onImageCallback(LeapConnection& con, const LEAP_IMAGE_EVENT *imageEvent){
     image_event_copy.image[0].data = con._images[idx].data();
     image_event_copy.image[1].data = con._images[idx + 1].data();
 
-    //copy calibration matrices
-    idx = con._distMatrices.size();
-    con._distMatrices.push_back(*(image_event_copy.image[0].distortion_matrix));
-    con._distMatrices.push_back(*(image_event_copy.image[1].distortion_matrix));
+    if (con._distMatrixLeftFlag) {
+        con._distMatrixLeftFlag = 0;
+        std::cout << "flag "<< std::endl;
+        //copy distorsion grid matrices
+        auto dist = new LEAP_DISTORTION_MATRIX; // LEAP_DISTORTION_MATRIX_N*LEAP_DISTORTION_MATRIX_N*2*sizeof(float)
+        std::memcpy(dist, imageEvent->image[0].distortion_matrix, sizeof(LEAP_DISTORTION_MATRIX));
 
-    image_event_copy.image[0].distortion_matrix = &con._distMatrices[idx];
-    image_event_copy.image[1].distortion_matrix = &con._distMatrices[idx + 1];
-
+        con._distMatrixLeft = cv::Mat(LEAP_DISTORTION_MATRIX_N, LEAP_DISTORTION_MATRIX_N, CV_32FC2,
+                                      cv::Scalar(1.0, 1.0));
+        for (int i = 0; i < LEAP_DISTORTION_MATRIX_N; ++i) {
+            for (int j = 0; j < LEAP_DISTORTION_MATRIX_N; ++j) {
+                auto x = dist->matrix[i][j].x;
+                auto y = dist->matrix[i][j].y;
+                if (x <= 1 && x >= 0 && y <= 1 && y >= 0)
+                    con._distMatrixLeft.at<cv::Vec2f>(j, i) = cv::Vec2f(x, y);
+            }
+        }
+        delete dist;
+    }
     con._imagesData.push_back(image_event_copy);
 }
 
 
 LeapConnection::LeapConnection() {    //Set callback function pointers
     ConnectionCallbacks.on_connection          = &OnConnect;
-    ConnectionCallbacks.on_device_found        = &OnDevice;
+    ConnectionCallbacks.on_device              = &OnDevice;
+    ConnectionCallbacks.on_device_found        = &OnDeviceFound;
     ConnectionCallbacks.on_frame               = &OnFrame;
     ConnectionCallbacks.on_image               = &OnImage;
     ConnectionCallbacks.on_device_lost         = &OnDeviceLost;
@@ -120,7 +141,8 @@ void LeapConnection::open()
 }
 
 void LeapConnection::setDefaultCallbacks() {
-    device_found_callback = &onDeviceCallback;
+    device_found_callback = &onDeviceFoundCallback;
+    device_callback = &onDeviceCallback;
     tracking_callback = &onFrameCallback;
     image_callback = &onImageCallback;
 }
@@ -133,11 +155,67 @@ void LeapConnection::close() {
     }
 }
 
+std::vector<float> LeapConnection::getCameraDistorsion(eLeapPerspectiveType camera){
+    std::vector<float> coeffs(8);
+    LeapDistortionCoeffs(*_connectionPtr.get(), camera, coeffs.data());
+    return coeffs;
+}
+
+cv::Mat LeapConnection::getCameraIntrinsics(eLeapPerspectiveType camera){
+    std::vector<float> coeffs(9);
+    LeapCameraMatrix(*_connectionPtr.get(), camera, coeffs.data());
+    return cv::Mat(3, 3, CV_32F, coeffs.data()).clone();
+}
+
+cv::Mat LeapConnection::getCameraExtrinsics(eLeapPerspectiveType camera){
+    std::vector<float> coeffs(16);
+    LeapExtrinsicCameraMatrix(*_connectionPtr.get(), camera, coeffs.data());
+    return cv::Mat(4, 4, CV_32F, coeffs.data()).clone();
+}
+
+LEAP_DEVICE_INFO LeapConnection::getDeviceInfo(){
+    LEAP_DEVICE_INFO info;
+    info.serial = NULL;
+    eLeapRS res = LeapGetDeviceInfo(*_devicePtr.get(), &info);
+    return info;
+}
+
+LEAP_VECTOR LeapConnection::getPixelFrom3D(eLeapPerspectiveType camera, LEAP_VECTOR point3D){
+    cv::Mat ext = getCameraExtrinsics(camera);
+
+    float x = ext.at<float>(0,0) * point3D.x + ext.at<float>(1,0) * point3D.y + ext.at<float>(2,0) * point3D.z +
+            ext.at<float>(3,0);
+    float y = ext.at<float>(0,1) * point3D.x + ext.at<float>(1,1) * point3D.y + ext.at<float>(2,1) * point3D.z +
+              ext.at<float>(3,1);
+    float z = ext.at<float>(0,2) * point3D.x + ext.at<float>(1,2) * point3D.y + ext.at<float>(2,2) * point3D.z +
+              ext.at<float>(3,2);
+    float w = ext.at<float>(0,3) * point3D.x + ext.at<float>(1,3) * point3D.y + ext.at<float>(2,3) * point3D.z +
+              ext.at<float>(3,3);
+    cv::Vec4f world3D(x/w, y/w, z/w, w/w);
+
+    std::vector<float> coeffsScaleOffset(16);
+    LeapScaleOffsetMatrix(*_connectionPtr.get(), camera, coeffsScaleOffset.data());
+    auto scaleOffsetMat = cv::Mat(4, 4, CV_32F, coeffsScaleOffset.data());
+
+    LEAP_VECTOR pointLeap;
+    pointLeap.x = scaleOffsetMat.at<float>(0,0) * x + scaleOffsetMat.at<float>(1,0) * y + scaleOffsetMat.at<float>(2,0) * z +
+            scaleOffsetMat.at<float>(3,0);
+    pointLeap.y = scaleOffsetMat.at<float>(0,1) * x + scaleOffsetMat.at<float>(1,1) * y + scaleOffsetMat.at<float>(2,1) * z +
+                  scaleOffsetMat.at<float>(3,1);
+    pointLeap.z = scaleOffsetMat.at<float>(0,2) * x + scaleOffsetMat.at<float>(1,2) * y + scaleOffsetMat.at<float>(2,2) * z +
+                  scaleOffsetMat.at<float>(3,2);
+
+    pointLeap.x = x;
+    pointLeap.y = y;
+    pointLeap.z = z;
+
+    return LeapRectilinearToPixel(*_connectionPtr.get(), camera, pointLeap);
+}
+
 void LeapConnection::clearAll(){
     _images.clear();
     _trackingData.clear();
     _imagesData.clear();
     _hands.clear();
-    _distMatrices.clear();
     _serial.clear();
 }

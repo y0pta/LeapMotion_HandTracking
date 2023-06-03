@@ -13,6 +13,7 @@ extern "C" {
 #include <functional>
 #include "ExampleConnection.h"
 #include <string>
+#include <opencv2/core.hpp>
 
 /** Class for getting and copying working data from motion controller**/
 class LeapConnection {
@@ -24,6 +25,11 @@ class LeapConnection {
         void open();
         void setDefaultCallbacks();
         void close();
+        std::vector<float> getCameraDistorsion(eLeapPerspectiveType camera);
+        cv::Mat getCameraIntrinsics(eLeapPerspectiveType camera);
+        cv::Mat getCameraExtrinsics(eLeapPerspectiveType camera);
+        LEAP_VECTOR getPixelFrom3D(eLeapPerspectiveType camera, LEAP_VECTOR point3D);
+        LEAP_DEVICE_INFO getDeviceInfo();
 
         //-- Callbacks --
         std::function<void(LeapConnection& con)>                                         connection_callback;
@@ -71,9 +77,13 @@ class LeapConnection {
             LEAP_DEVICE_INFO _deviceInfo;
 
             std::vector<std::vector<char>> _images;
-            std::vector<LEAP_DISTORTION_MATRIX> _distMatrices;
+            cv::Mat _distMatrixLeft;
+            std::atomic_bool _distMatrixLeftFlag = 1;
+            cv::Mat _distMatrixRight;
             std::vector<LEAP_HAND> _hands;
             std::string _serial;
+
+            std::unique_ptr<LEAP_DEVICE> _devicePtr;
 
     private:
         std::unique_ptr<LEAP_CONNECTION> _connectionPtr;

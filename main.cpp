@@ -3,12 +3,16 @@
 #include <chrono>
 #include <thread>
 #include "TrackingApp.h"
-#include "CalibrationApp.h"
+#include "CalibrationConsoleApp.h"
 #include <mutex>
 #include <stdlib.h>
+#include <filesystem>
+#include <opencv2/highgui.hpp>
+#include "LeapConnectionSerializer.h"
+#include "fstream"
 
 int main() {
-    CalibrationApp app;
+    TrackingApp app;
     app.run();
     return 0;
 }
