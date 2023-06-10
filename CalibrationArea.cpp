@@ -5,6 +5,7 @@
 #include "CalibrationArea.h"
 #include <fstream>
 #include <iostream>
+#include "3rdparty/spdlog/spdlog.h"
 
 
 std::string CalibrationArea::str(EPointType type)
@@ -16,6 +17,7 @@ bool CalibrationArea::save(const std::string& filename) const
 {
     std::ofstream file(filename);
     if (!file.is_open()) {
+        spdlog::get("logger")->error("Error: Could not open file " + filename);
         std::cerr << "Error: Could not open file \"" << filename << "\"" << std::endl;
         return false;
     }
@@ -35,6 +37,7 @@ bool CalibrationArea::save(const std::string& filename) const
 
     // Check for errors
     if (file.fail()) {
+        spdlog::get("logger")->error("Error: Could not write calibration points to file " + filename);
         std::cerr << "Error: Could not write calibration points to file \"" << filename << "\"" << std::endl;
         return false;
     }
@@ -47,6 +50,7 @@ bool CalibrationArea::load(const std::string& filename)
 {
     std::ifstream file(filename);
     if (!file.is_open()) {
+        spdlog::get("logger")->error("Error: Could not open file " + filename);
         std::cerr << "Error: Could not open file \"" << filename << "\"" << std::endl;
         return false;
     }
@@ -62,6 +66,7 @@ bool CalibrationArea::load(const std::string& filename)
 
     // Check for errors
     if (file.fail()) {
+        spdlog::get("logger")->error("Error: Could not read calibration points from file " + filename);
         std::cerr << "Error: Could not read calibration points from file \"" << filename << "\"" << std::endl;
         return false;
     }

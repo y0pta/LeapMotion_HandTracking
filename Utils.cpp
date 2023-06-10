@@ -4,6 +4,7 @@
 
 #include "Utils.h"
 #include <fstream>
+#include <conio.h>
 
 namespace LeapStatus{
     std::string toString(eLeapRS code) {
@@ -187,5 +188,34 @@ namespace OpencvUtils {
 
         // If the signs of the cross products are not all the same, the point is outside the parallelogram
         return false;
+    }
+}
+
+namespace AppUtils {
+    /** input-key function */
+    void waitForKeyPress(const std::string &message) {
+        std::cout << message << std::endl;
+        while (true) {
+            //std::this_thread::sleep_for(std::chrono::milliseconds(20));
+            if (_kbhit())
+            {
+                char key = _getch();
+                if (key == 'R' || key == 'r')
+                    break;
+                if (key == 27)
+                    exit(0);
+            }
+        }
+    }
+
+    void showTimer(int seconds)
+    {
+        for (int i = seconds * 10; i >= 0; --i)
+        {
+            std::cout << "Elapsed time: " << int(i / 10) << ":" << i % 10  << "0 seconds\r";
+            std::cout.flush();
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
+        std::cout << std::endl;
     }
 }

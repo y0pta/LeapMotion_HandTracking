@@ -5,12 +5,13 @@
 #include "LeapConnection.h"
 #include <iostream>
 #include <vector>
+#include "spdlog/spdlog.h"
 
 static LeapConnection* __connection = nullptr;
 
 /** Callback for when the connection opens. */
 static void OnConnect(void){
-    std::cout << "Connected.\n";
+    spdlog::get("logger")->info("Device connected successfully");
 }
 
 /** Callback for when a device is found. */
@@ -35,18 +36,17 @@ static void OnImage(const LEAP_IMAGE_EVENT *imageEvent) {
 
 /** Callback when device was lost. */
 static void OnDeviceLost() {
-    std::cout << "Device was lost" << std::endl;
+    spdlog::get("logger")->warn("Device was lost.");
 }
 
 void onDeviceCallback(LeapConnection& con, const LEAP_DEVICE *device){
-    //con._devicePtr = std::unique_ptr<LEAP_DEVICE>(const_cast<LEAP_DEVICE*>(device));
 }
 
 void onDeviceFoundCallback(LeapConnection& con, const LEAP_DEVICE_INFO *props) {
-    std::cout << "Device info received. Device: " << props->serial << std::endl;
-    std::cout << "HFOV:" << props->h_fov << std::endl;
-    std::cout << "VFOV:" << props->v_fov << std::endl;
-    std::cout << "Max range(micrometers):" << props->range << std::endl;
+    spdlog::get("logger")->info("Device info received. Device: " + std::string(props->serial));
+    spdlog::get("logger")->info("HFOV:" + std::to_string(int(props->h_fov)));
+    spdlog::get("logger")->info("VFOV:" + std::to_string(int(props->v_fov)));
+    spdlog::get("logger")->info("Max range(micrometers):" + std::to_string(props->range));
 
     con._deviceInfo = *props;
     con._serial = std::string(props->serial, props->serial_length);
@@ -54,11 +54,8 @@ void onDeviceFoundCallback(LeapConnection& con, const LEAP_DEVICE_INFO *props) {
 }
 
 void onFrameCallback(LeapConnection& con, const LEAP_TRACKING_EVENT *frame){
-    //std::cout << "Frame received. ID: " << frame->info.frame_id << std::endl;
-
     // copy all data, including pointers
     LEAP_TRACKING_EVENT frame_deepcopy = *frame;
-
 
     for (int i = 0; i < frame->nHands; ++i)
     {
@@ -80,8 +77,6 @@ std::vector<char> copyImg(const LEAP_IMAGE& img){
 }
 
 void onImageCallback(LeapConnection& con, const LEAP_IMAGE_EVENT *imageEvent){
-    //std::cout << "Image received. Frame ID: " << imageEvent->info.frame_id << std::endl;
-
     auto image_event_copy = *imageEvent;
 
     //copy all data, including pointers for post-processing
@@ -98,7 +93,6 @@ void onImageCallback(LeapConnection& con, const LEAP_IMAGE_EVENT *imageEvent){
 
     if (con._distMatrixLeftFlag) {
         con._distMatrixLeftFlag = 0;
-        std::cout << "flag "<< std::endl;
         //copy distorsion grid matrices
         auto dist = new LEAP_DISTORTION_MATRIX; // LEAP_DISTORTION_MATRIX_N*LEAP_DISTORTION_MATRIX_N*2*sizeof(float)
         std::memcpy(dist, imageEvent->image[0].distortion_matrix, sizeof(LEAP_DISTORTION_MATRIX));
@@ -149,8 +143,8 @@ void LeapConnection::setDefaultCallbacks() {
 
 void LeapConnection::close() {
     if (_connectionPtr.get() != nullptr) {
-        CloseConnection();
         DestroyConnection();
+        _connectionPtr.release();
         __connection = nullptr;
     }
 }

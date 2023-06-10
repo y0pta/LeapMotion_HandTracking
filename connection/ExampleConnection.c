@@ -103,7 +103,11 @@ void CloseConnection(void){
 }
 
 void DestroyConnection(void){
-  CloseConnection();
+  //CloseConnection();
+    if(!_isRunning){
+        return;
+    }
+    _isRunning = false;
   LeapDestroyConnection(connectionHandle);
 }
 
@@ -171,7 +175,7 @@ static void handleDeviceEvent(const LEAP_DEVICE_EVENT *device_event){
       eLeapRS status = LeapGetDeviceTransform(deviceHandle, transform);
       switch (status) {
           case eLeapRS_Success:
-              printf("Success\n");
+              //printf("Success\n");
               break;
           case eLeapRS_UnknownError:
               printf( "Unknown error\n");

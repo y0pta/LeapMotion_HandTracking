@@ -7,7 +7,8 @@
 #include <numeric>
 #include <thread>
 #include <chrono>
-CalibrationConsoleApp* __app;
+#include "Utils.h"
+std::unique_ptr<CalibrationConsoleApp> __app;
 
 /** Print out position of tail of index finger */
 void frameCalibCallbackDebug(LeapConnection& con, const LEAP_TRACKING_EVENT *frame){
@@ -31,47 +32,19 @@ void frameCalibConsoleCallback(LeapConnection& con, const LEAP_TRACKING_EVENT *f
     }
 }
 
-/** input-key function */
-void waitForKeyPress(const std::string& message = "Press 'R' to continue...")
-{
-    std::cout << message << std::endl;
-    while (true)
-    {
-        std::this_thread::sleep_for(std::chrono::milliseconds(20));
-        char key;
-        std::cin >> key;
-        if (key == 'R' || key == 'r')
-            break;
-        if (key == 27)
-            exit(0);
-    }
-}
-
-void showTimer(int seconds)
-{
-    for (int i = seconds; i >= 0; --i)
-    {
-        std::cout << "Elapsed time: " << i << " seconds\r";
-        std::cout.flush();
-        std::this_thread::sleep_for(std::chrono::seconds(1));
-    }
-    std::cout << std::endl;
-}
-
 CalibrationConsoleApp::CalibrationConsoleApp(){
-    __app = this;
+    __app = std::unique_ptr<CalibrationConsoleApp>(this);
 }
 
 CalibrationConsoleApp::~CalibrationConsoleApp(){
-    __app = nullptr;
+    __app.release();
 }
 
 void CalibrationConsoleApp::runDebug()
 {
     _connection.tracking_callback = frameCalibCallbackDebug;
     _connection.open();
-    waitForKeyPress("Press esc to quit.");
-    _connection.close();
+    AppUtils::waitForKeyPress("Press esc to quit.");
 }
 
 void CalibrationConsoleApp::run()
@@ -88,13 +61,12 @@ void CalibrationConsoleApp::run()
     calib.calibrate();
     calib.save("calib.txt");
     std::cout << "CalibrationArea done" << std::endl;
-    _connection.close();
 }
 
 cv::Point3f CalibrationConsoleApp::_getCalibrationPoint(CalibrationArea::EPointType point)
 {
     while(true) {
-        waitForKeyPress("Position your index finger to the " + _pointTypeName[point] + " corner of the screen, then press 'R'");
+        AppUtils::waitForKeyPress("Position your index finger to the " + _pointTypeName[point] + " corner of the screen, then press 'R'");
         if (!handDetected){
             std::cout << "Hand is not detected, try again." << std::endl;
         }
@@ -103,7 +75,7 @@ cv::Point3f CalibrationConsoleApp::_getCalibrationPoint(CalibrationArea::EPointT
             break;
         }
     }
-    showTimer(3);
+    AppUtils::showTimer(3);
     recordEvent = false;
 
     // record point

@@ -16,6 +16,12 @@ namespace LeapDeviceStatus {
     std::string toString(int deviceStatus);
 }
 
+namespace AppUtils{
+    void waitForKeyPress(const std::string& message = "Press 'R' to continue...");
+    void showTimer(int seconds);
+    void emulateMouseMovement(int dx, int dy);
+}
+
 namespace OpencvUtils {
     cv::Mat voidPtrToMat(void *data, int width, int height, int channels);
     void imgConcat(cv::Mat& img1, cv::Mat& img2, cv::Mat& combined);

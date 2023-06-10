@@ -4,12 +4,12 @@
 
 #ifndef LEAPC_TEST_TRACKINGAPP_H
 #define LEAPC_TEST_TRACKINGAPP_H
-#include "CalibData.h"
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc.hpp>
 #include <memory>
 #include "CalibrationArea.h"
+#include "LeapC.h"
 
 class TrackingApp {
     public:

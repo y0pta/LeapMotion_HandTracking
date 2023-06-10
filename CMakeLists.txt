@@ -15,12 +15,17 @@ set(SOURCES main.cpp
         LeapConnectionSerializer.h
         Utils.cpp
         Utils.h
-        CalibData.cpp
-        CalibData.h
         TrackingApp.cpp
         TrackingApp.h
         CalibrationConsoleApp.cpp
-        CalibrationConsoleApp.h CalibrationArea.cpp CalibrationArea.h)
+        CalibrationConsoleApp.h
+        CalibrationArea.cpp
+        CalibrationArea.h
+        MouseEmulationApp.cpp
+        MouseEmulationApp.h
+        GestureRecognizer.cpp
+        GestureRecognizer.h
+        "3rdparty/spdlog")
 
 # ADD EXE
 add_executable(${PROJECT_NAME} ${SOURCES})
@@ -65,8 +70,10 @@ ADD_CUSTOM_COMMAND (
             "${OpenCV_DIR}/bin/Debug/opencv_calib3d470d.dll"
             "${OpenCV_DIR}/bin/Debug/opencv_features2d470d.dll"
             "${OpenCV_DIR}/bin/Debug/opencv_flann470d.dll"
+            "${CMAKE_CURRENT_SOURCE_DIR}/lclick.wav"
+            "${CMAKE_CURRENT_SOURCE_DIR}/rclick.wav"
             $<TARGET_FILE_DIR:${PROJECT_NAME}>
 )
 #------------------------------------
 target_include_directories(${PROJECT_NAME} PUBLIC 3rdparty ${OpenCV_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME} libExampleConnection opencv_core opencv_highgui opencv_calib3d)
+target_link_libraries(${PROJECT_NAME} libExampleConnection opencv_core opencv_highgui opencv_calib3d Winmm.lib)
