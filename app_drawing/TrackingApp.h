@@ -8,7 +8,7 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc.hpp>
 #include <memory>
-#include "CalibrationArea.h"
+#include "../sources/CalibrationArea.h"
 #include "LeapC.h"
 
 class TrackingApp {

@@ -1,0 +1,4 @@
+interaction_threshold = 100
+press_threshold = 10
+interdigital_threshold = 20
+max_doubleclick_delay = 500

@@ -4,7 +4,7 @@
 
 #include "TrackingApp.h"
 #include <memory>
-#include "LeapConnection.h"
+#include "../sources/LeapConnection.h"
 
 std::unique_ptr<TrackingApp> __app;
 

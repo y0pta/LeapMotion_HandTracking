@@ -3,7 +3,7 @@
 //
 
 #include "GestureRecognizer.h"
-#include <spdlog/spdlog.h>
+#include "spdlog/spdlog.h"
 
 FingersContainer::FingersData& FingersContainer::add(cv::Point3f& indexCoords,
                                                      cv::Point3f& middleCoords,

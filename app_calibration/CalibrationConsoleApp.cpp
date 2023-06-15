@@ -7,7 +7,7 @@
 #include <numeric>
 #include <thread>
 #include <chrono>
-#include "Utils.h"
+#include "../sources/Utils.h"
 std::unique_ptr<CalibrationConsoleApp> __app;
 
 /** Print out position of tail of index finger */
@@ -37,7 +37,7 @@ CalibrationConsoleApp::CalibrationConsoleApp(){
 }
 
 CalibrationConsoleApp::~CalibrationConsoleApp(){
-    __app.release();
+    //__app.release();
 }
 
 void CalibrationConsoleApp::runDebug()

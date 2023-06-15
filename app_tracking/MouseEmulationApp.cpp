@@ -3,13 +3,14 @@
 //
 
 #include "MouseEmulationApp.h"
-#include "LeapConnection.h"
+#include "../sources/LeapConnection.h"
 #define NOMINMAX
 #include <windows.h>
 #include <playsoundapi.h>
-#include "Utils.h"
-#include <spdlog/spdlog.h>
+#include "../sources/Utils.h"
+#include "spdlog/spdlog.h"
 #include <opencv2/core.hpp>
+#include <fstream>
 
 std::unique_ptr<MouseEmulationApp> __app;
 
@@ -99,4 +100,56 @@ void MouseEmulationApp::processFingersPosition(LEAP_VECTOR& indexCoords,
         default:
             break;
     }
+}
+
+void MouseEmulationApp::parseConfig(const std::string& fname){
+    std::unordered_map<std::string, int> config;
+
+    std::ifstream file(fname);
+    if (!file.is_open()) {
+        std::cout << "Error opening config file: " << fname << std::endl;
+        spdlog::get("logger")->error("Error opening config file: " + fname);
+    }
+
+    std::string line;
+    while (std::getline(file, line)) {
+        size_t delimiterPos = line.find('=');
+        if (delimiterPos == std::string::npos) {
+            std::cout << "Error: Invalid format in config-file. Line: " << line << std::endl;
+            spdlog::get("logger")->error("Error: Invalid format in config-file. Line: " + line);
+            continue;
+        }
+
+        std::string key = line.substr(0, delimiterPos);
+        std::string valueStr = line.substr(delimiterPos + 1);
+        try {
+            int value = std::stoi(valueStr);
+            config[key] = value;
+        } catch (const std::exception& e) {
+            std::cout << "Error parsing value in line: " << line << std::endl;
+            spdlog::get("logger")->error("Error parsing value in config-file. Line: " + line);
+        }
+    }
+    file.close();
+
+    // defaults
+    // Default values
+    std::unordered_map<std::string, int> defaultConfig;
+    defaultConfig["interaction_threshold"] = 100;
+    defaultConfig["press_threshold"] = 10;
+    defaultConfig["interdigital_threshold"] = 20;
+    defaultConfig["max_doubleclick_delay"] = 500;
+
+    // Update with default values if not present in the file
+    for (const auto& entry : defaultConfig) {
+        if (config.find(entry.first) == config.end()) {
+            config[entry.first] = entry.second;
+        }
+    }
+
+    _recognizer->interaction_threshold = config["interaction_threshold"];
+    _recognizer->press_threshold = config["press_threshold"];
+    _recognizer->interdigital_threshold = config["interdigital_threshold"];
+    _recognizer->max_doubleclick_delay = config["max_doubleclick_delay"];
+
 }

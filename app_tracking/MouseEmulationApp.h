@@ -7,12 +7,13 @@
 #include <memory>
 #include "LeapC.h"
 #include <thread>
-#include "GestureRecognizer.h"
+#include "../sources/GestureRecognizer.h"
 
 class MouseEmulationApp {
     public:
         MouseEmulationApp();
         ~MouseEmulationApp();
+        void parseConfig(const std::string& fname);
         void run();
         void processFingersPosition(LEAP_VECTOR& indexCoords,
                                     LEAP_VECTOR& middleCoords,

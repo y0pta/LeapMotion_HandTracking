@@ -6,7 +6,7 @@
 #define LEAPC_TEST_LEAPCONNECTION_H
 #include "LeapC.h"
 extern "C" {
-#include "connection/ExampleConnection.h"
+#include "ExampleConnection.h"
 }
 #include <memory>
 #include <vector>

@@ -4,8 +4,8 @@
 
 #ifndef LEAPC_TEST_CALIBRATIONCONSOLEAPP_H
 #define LEAPC_TEST_CALIBRATIONCONSOLEAPP_H
-#include "LeapConnection.h"
-#include "CalibrationArea.h"
+#include "../sources/LeapConnection.h"
+#include "../sources/CalibrationArea.h"
 #include <string>
 #include <array>
 

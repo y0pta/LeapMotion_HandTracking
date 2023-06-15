@@ -5,7 +5,7 @@
 #include "CalibrationArea.h"
 #include <fstream>
 #include <iostream>
-#include "3rdparty/spdlog/spdlog.h"
+#include "spdlog/spdlog.h"
 
 
 std::string CalibrationArea::str(EPointType type)

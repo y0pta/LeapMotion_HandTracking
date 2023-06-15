@@ -202,7 +202,7 @@ namespace AppUtils {
                 char key = _getch();
                 if (key == 'R' || key == 'r')
                     break;
-                if (key == 27)
+                if (key == 27 || key == 'q' || key == 'Q')
                     exit(0);
             }
         }
